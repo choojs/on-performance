@@ -22,21 +22,25 @@ function onPerformance (cb) {
 
   window.performance.getEntries().forEach(function (entry) {
     onIdle(function () {
-      clear(entry)
       cb(entry)
+      clear(entry)
     })
   })
-
-  return observer.disconnect.bind(observer)
 
   function handler (list) {
     list.getEntries().forEach(function (entry) {
       onIdle(function () {
-        clear(entry)
         cb(entry)
+        clear(entry)
       })
     })
   }
+
+  // Workaround to prevent the observer instance from being garbage collected
+  // https://twitter.com/yoshuawuyts/status/876098840495091713
+  window['obs' + window.performance.now()] = observer
+
+  return observer.disconnect.bind(observer)
 
   // Navigation, longtask and frame don't have a clear method (yet)
   // Resource timings can only be cleared in bulk
