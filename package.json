@@ -1,0 +1,29 @@
+{
+  "name": "on-performance",
+  "description": "Listen for performance timeline events",
+  "repository": "yoshuawuyts/on-performance",
+  "version": "1.0.0",
+  "scripts": {
+    "deps": "dependency-check . && dependency-check . --extra --no-dev",
+    "start": "bankai start test.js",
+    "test": "standard && npm run deps && browserify test | tape-run"
+  },
+  "dependencies": {
+    "on-idle": "^3.0.0"
+  },
+  "devDependencies": {
+    "bankai": "^8.0.0",
+    "browserify": "^14.4.0",
+    "dependency-check": "^2.8.0",
+    "nanotiming": "^5.2.1",
+    "standard": "^10.0.2",
+    "tape": "^4.6.3",
+    "tape-run": "^3.0.0"
+  },
+  "keywords": [
+    "performance",
+    "timeline",
+    "api"
+  ],
+  "license": "MIT"
+}
