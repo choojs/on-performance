@@ -2,7 +2,7 @@
   "name": "on-performance",
   "description": "Listen for performance timeline events",
   "repository": "yoshuawuyts/on-performance",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
     "start": "bankai start test.js",
