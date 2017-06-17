@@ -16,7 +16,7 @@ function onPerformance (cb) {
       'measure',
       'navigation',
       'resource',
-      'longtask'    // not implemented yet in any browser
+      'longtask'
     ]
   })
 
