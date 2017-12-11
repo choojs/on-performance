@@ -8,7 +8,11 @@
     "start": "bankai start test.js",
     "test": "standard && npm run deps && browserify test | tape-run"
   },
+  "browser": {
+    "assert": "nanoassert"
+  },
   "dependencies": {
+    "nanoassert": "^1.1.0",
     "nanoscheduler": "^1.0.0"
   },
   "devDependencies": {
