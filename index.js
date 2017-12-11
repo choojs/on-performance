@@ -1,4 +1,4 @@
-var onIdle = require('on-idle')
+var scheduler = require('nanoscheduler')()
 var assert = require('assert')
 
 module.exports = onPerformance
@@ -21,7 +21,7 @@ function onPerformance (cb) {
   })
 
   window.performance.getEntries().forEach(function (entry) {
-    onIdle(function () {
+    scheduler.push(function () {
       cb(entry)
       clear(entry)
     })
@@ -29,7 +29,7 @@ function onPerformance (cb) {
 
   function handler (list) {
     list.getEntries().forEach(function (entry) {
-      onIdle(function () {
+      scheduler.push(function () {
         cb(entry)
         clear(entry)
       })

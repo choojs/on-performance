@@ -9,7 +9,7 @@
     "test": "standard && npm run deps && browserify test | tape-run"
   },
   "dependencies": {
-    "on-idle": "^3.0.0"
+    "nanoscheduler": "^1.0.0"
   },
   "devDependencies": {
     "bankai": "^8.0.0",
