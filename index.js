@@ -30,8 +30,8 @@ function onPerformance (cb) {
   function handler (list) {
     list.getEntries().forEach(function (entry) {
       scheduler.push(function () {
-        cb(entry)
         clear(entry)
+        cb(entry)
       })
     })
   }
