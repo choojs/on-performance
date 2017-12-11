@@ -37,7 +37,7 @@ function onPerformance (cb) {
   }
 
   // Workaround to prevent the observer instance from being garbage collected
-  // https://twitter.com/yoshuawuyts/status/876098840495091713
+  // https://twitter.com/choojs/status/876098840495091713
   window['obs' + window.performance.now()] = observer
 
   return observer.disconnect.bind(observer)
