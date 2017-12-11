@@ -1,4 +1,4 @@
-var onIdle = require('on-idle')
+var scheduler = require('nanoscheduler')()
 var assert = require('assert')
 
 var entryTypes = [
@@ -18,7 +18,10 @@ function onPerformance (cb) {
   if (!PerformanceObserver) return
 
   // Enable singleton.
-  if (window._onperformance) return window._onperformance.push(cb)
+  if (window._onperformance) {
+    window._onperformance.push(cb)
+    return stop
+  }
 
   window._onperformance = [cb]
   var observer = new PerformanceObserver(parseEntries)
@@ -26,15 +29,20 @@ function onPerformance (cb) {
     parseEntries(window.performance)
     observer.observe({ entryTypes: entryTypes })
   }, 0)
-  return observer.disconnect.bind(observer)
+
+  return stop
+
+  function stop () {
+    window._onperformance.splice(window._onperformance.indexOf(cb), 1)
+  }
 
   function parseEntries (list) {
     list.getEntries().forEach(function (entry) {
-      onIdle(function () {
+      scheduler.push(function () {
+        clear(entry)
         window._onperformance.forEach(function (cb) {
           cb(entry)
         })
-        clear(entry)
       })
     })
   }
