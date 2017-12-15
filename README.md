@@ -2,7 +2,8 @@
 [![npm version][2]][3] [![build status][4]][5]
 [![downloads][8]][9] [![js-standard-style][10]][11]
 
-Listen for performance timeline events and clears them after usage.
+Listen for performance timeline events and clears them after usage. Returns a
+singleton.
 
 ## Usage
 ```js
@@ -15,7 +16,9 @@ onPerformance(function (entry) {
 
 ## API
 ### `stop = onPerformance(callback(entry))`
-Listen for performance events.
+Listen for performance events. Returns a singleton (e.g. multiple calls to this
+method are registered on the same listener). If multiple instances are created
+during the first tick, all initial events will be played back to all instances.
 
 ### `stop()`
 Stop the observer.
