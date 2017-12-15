@@ -2,7 +2,7 @@
   "name": "on-performance",
   "description": "Listen for performance timeline events",
   "repository": "choojs/on-performance",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "scripts": {
     "deps": "dependency-check . && dependency-check . --extra --no-dev -i nanoassert",
     "start": "bankai start test.js",
