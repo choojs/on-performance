@@ -3,7 +3,7 @@
 [![downloads][8]][9] [![js-standard-style][10]][11]
 
 Listen for performance timeline events and clears them after usage. Returns a
-singleton.
+singleton. Can be used in both node and browser environments.
 
 ## Usage
 ```js
