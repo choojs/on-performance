@@ -3,14 +3,13 @@
   "description": "Listen for performance timeline events",
   "repository": "choojs/on-performance",
   "main": "index.js",
-  "browser": "browser.js",
-  "version": "1.1.0",
+  "browser": {
+    "assert": "nanoassert"
+  },
+  "version": "1.2.0",
   "scripts": {
     "start": "bankai start test.js",
     "test": "standard && browserify test | tape-run"
-  },
-  "browser": {
-    "assert": "nanoassert"
   },
   "dependencies": {
     "nanoassert": "^1.1.0",
