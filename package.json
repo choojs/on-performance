@@ -4,6 +4,7 @@
   "repository": "choojs/on-performance",
   "main": "index.js",
   "browser": {
+    "./index.js": "./browser.js",
     "assert": "nanoassert"
   },
   "version": "1.2.0",
