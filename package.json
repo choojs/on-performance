@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "nanoassert": "^1.1.0",
-    "nanoscheduler": "^1.0.0"
+    "nanoscheduler": "^1.0.0",
+    "perf_hooks": "0.0.1"
   },
   "devDependencies": {
     "bankai": "^8.0.0",
