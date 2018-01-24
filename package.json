@@ -2,11 +2,12 @@
   "name": "on-performance",
   "description": "Listen for performance timeline events",
   "repository": "choojs/on-performance",
+  "main": "index.js",
+  "browser": "browser.js",
   "version": "1.1.0",
   "scripts": {
-    "deps": "dependency-check . && dependency-check . --extra --no-dev -i nanoassert",
     "start": "bankai start test.js",
-    "test": "standard && npm run deps && browserify test | tape-run"
+    "test": "standard && browserify test | tape-run"
   },
   "browser": {
     "assert": "nanoassert"
