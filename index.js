@@ -11,6 +11,8 @@ var entryTypes = [
 module.exports = onPerformance
 
 function onPerformance (cb) {
+  if (typeof window !== 'undefined') return require('./browser.js')(cb) // electron support
+
   assert.equal(typeof cb, 'function', 'on-performance: cb should be type function')
 
   var PerformanceObserver
