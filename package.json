@@ -7,7 +7,7 @@
     "./index.js": "./browser.js",
     "assert": "nanoassert"
   },
-  "version": "1.2.0",
+  "version": "1.2.1",
   "scripts": {
     "start": "bankai start test.js",
     "test": "standard && browserify test | tape-run"
