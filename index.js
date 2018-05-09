@@ -32,10 +32,15 @@ function onPerformance (cb) {
 
   global._onperformance = [cb]
   var observer = new PerformanceObserver(parseEntries)
-  setTimeout(function () {
-    parseEntries(performance)
+  // Only necessary in Node >=8.5 <10, Node 10+ doesn't have a global buffer
+  if (performance.getEntries) {
+    setTimeout(function () {
+      parseEntries(performance)
+      observer.observe({ entryTypes: entryTypes })
+    }, 0)
+  } else {
     observer.observe({ entryTypes: entryTypes })
-  }, 0)
+  }
 
   return stop
 
@@ -54,8 +59,8 @@ function onPerformance (cb) {
 
   function clear (entry) {
     var type = entry.entryType
-    if (type === 'measure') performance.clearMeasures(entry.name)
-    else if (type === 'mark') performance.clearMarks(entry.name)
-    else if (type === 'function') performance.clearFunctions(entry.name)
+    // Only necessary in Node >=8.5 <10, Node 10+ doesn't have a global buffer
+    if (type === 'measure' && performance.clearMeasures) performance.clearMeasures(entry.name)
+    else if (type === 'function' && performance.clearFunctions) performance.clearFunctions(entry.name)
   }
 }
