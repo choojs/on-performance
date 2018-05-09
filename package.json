@@ -9,21 +9,21 @@
   },
   "version": "1.2.1",
   "scripts": {
-    "start": "bankai start test.js",
-    "test": "standard && browserify test | tape-run"
+    "start": "bankai start test/browser.js",
+    "test": "standard && node test && browserify test/browser | tape-run"
   },
   "dependencies": {
     "nanoassert": "^1.1.0",
     "nanoscheduler": "^1.0.0"
   },
   "devDependencies": {
-    "bankai": "^8.0.0",
-    "browserify": "^14.4.0",
-    "dependency-check": "^2.8.0",
-    "nanotiming": "^5.2.1",
-    "standard": "^10.0.2",
-    "tape": "^4.6.3",
-    "tape-run": "^3.0.0"
+    "bankai": "^9.12.0",
+    "browserify": "^16.2.2",
+    "dependency-check": "^3.1.0",
+    "nanotiming": "^7.3.1",
+    "standard": "^11.0.1",
+    "tape": "^4.9.0",
+    "tape-run": "^4.0.0"
   },
   "keywords": [
     "performance",
