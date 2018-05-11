@@ -1,7 +1,7 @@
 var nanotiming = require('nanotiming')
 var tape = require('tape')
 
-var onPerformance = require('./browser')
+var onPerformance = require('../browser')
 
 tape('should flush already buffered events', function (assert) {
   var startLength = window.performance.getEntries().length
